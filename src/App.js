@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { ListItem, UnorderedList } from '@chakra-ui/react';
 import { firestore } from './firebase';
@@ -45,9 +45,10 @@ const products = [
 ];
 
 export default function App() {
+  const [goods, setGoods] = useState();
   return (
     <ChakraProvider>
-      <UnorderedList>{products.map(printProduct)}</UnorderedList>
+      <UnorderedList>{goods?.map(printProduct)}</UnorderedList>
     </ChakraProvider>
   );
 }
