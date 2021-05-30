@@ -45,16 +45,17 @@ const products = [
 ];
 
 export default function App() {
-  function printProduct(product, index) {
-    return (
-      <ListItem key={`${index}-${product.itle}`}>
-        {`${product.title} - ${product.category} - ${product.price}원`}
-      </ListItem>
-    );
-  }
   return (
     <ChakraProvider>
       <UnorderedList>{products.map(printProduct)}</UnorderedList>
     </ChakraProvider>
+  );
+}
+
+function printProduct(product, index) {
+  return (
+    <ListItem key={`${index}-${product.itle}`}>
+      {`${product.title} - ${product.category} - ${product.price}원`}
+    </ListItem>
   );
 }
