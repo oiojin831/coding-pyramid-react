@@ -26,9 +26,9 @@ const products = [
 ];
 
 export default function App() {
-  function printProduct(product) {
+  function printProduct(product, index) {
     return (
-      <ListItem>
+      <ListItem key={`${index}-${product.itle}`}>
         {`${product.title} - ${product.category} - ${product.price}원`}
       </ListItem>
     );
