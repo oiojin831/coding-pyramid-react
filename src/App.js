@@ -1,6 +1,25 @@
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { ListItem, UnorderedList } from '@chakra-ui/react';
+import { firestore } from './firebase';
+
+const data = firestore
+  .collection('goods')
+  .get()
+  .then(querySnapshot => {
+    const myArr = [];
+    querySnapshot.forEach(doc => {
+      // doc.data() is never undefined for query doc snapshots
+      myArr.push(doc.data());
+    });
+    console.log(myArr);
+    setData(myArr);
+  })
+  .catch(error => {
+    console.log('Error getting documents: ', error);
+  });
+
+console.log('data', data);
 
 const products = [
   {
